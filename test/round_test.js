@@ -45,4 +45,19 @@ describe('Round', () => {
     })
   })
 
+  describe('#takeTurn', () => {
+    it('records a turn', () => {
+      let card1 = new Card("Question?", "Answer", "Test Question")
+      let card2 = new Card("Question 2?", "Answer 2", "Test Question")
+      let card3 = new Card("Question 3?", "Answer 3", "Pop Culture")
+      let cards = [card1, card2, card3]
+      let deck = new Deck(cards)
+      let round = new Round(deck)
+
+      assert.equal(round.currentCard(), card1)
+      round.takeTurn("Answer")
+      assert.instanceOf(round.turns[0], Turn)
+    })
+  })
+
 })
