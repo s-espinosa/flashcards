@@ -49,4 +49,23 @@ describe('Deck', () => {
       assert.deepEqual(deck.cardsInCategory("Pop Culture"), [card3])
     })
   })
+
+  describe('#currentCard', () => {
+    it('returns the card at the current index', () => {
+      let card1 = new Card("Question?", "Answer", "Test Question")
+      let card2 = new Card("Question 2?", "Answer 2", "Test Question")
+      let card3 = new Card("Question 3?", "Answer 3", "Pop Culture")
+      let cards = [card1, card2, card3]
+      let deck = new Deck(cards)
+
+      assert.equal(deck.currentCard(), card1)
+      deck.takeTurn()
+      assert.equal(deck.currentCard(), card2)
+      deck.takeTurn()
+      assert.equal(deck.currentCard(), card3)
+      deck.takeTurn()
+      assert.equal(deck.currentCard(), card1)
+    })
+  })
+
 })
