@@ -67,5 +67,4 @@ describe('Deck', () => {
       assert.equal(deck.currentCard(), card1)
     })
   })
-
 })
